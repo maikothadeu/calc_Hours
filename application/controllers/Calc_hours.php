@@ -15,11 +15,7 @@ class Calc_hours extends CI_Controller {
 	}
 
 	public function check_hours(){
-		$this->form_validation->set_rules('txt_h_start_monday', 'time', 'required');
-		if($this->form_validation->run() == FALSE){
-			$this->load->view('calc_hours_view');
-		}
-		else{
+		
 			$txt_money_per_h = $this->input->get('txt_money_per_h');
 
 			$txt_h_start_monday = $this->input->get('txt_h_start_monday');
@@ -92,32 +88,5 @@ class Calc_hours extends CI_Controller {
 			);
 
 			$this->load->view('calc_hours_view',$array_tot_h);
-		}	
-
-	}
-
-	public function validate_time($str)
-	{
-		//Assume $str SHOULD be entered as HH:MM
-
-		list($hh, $mm) = split('[:]', $str);	
-
-		if (!is_numeric($hh) || !is_numeric($mm))
-		{
-    		$this->form_validation->set_message('validate_time', 'Not numeric');
-    		return FALSE;
-		}
-		else if ((int) $hh > 24 || (int) $mm > 59)
-		{
-    		$this->form_validation->set_message('validate_time', 'Invalid time');
-    		return FALSE;
-		}
-		else if (mktime((int) $hh, (int) $mm) === FALSE)
-		{
-    		$this->form_validation->set_message('validate_time', 'Invalid time');
-    		return FALSE;
-		}
-
-		return TRUE;
 	}
 }

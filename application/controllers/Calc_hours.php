@@ -78,8 +78,7 @@ class Calc_hours extends CI_Controller {
 			$tot_h = $tot_h_monday+$tot_h_tuesday+$tot_h_wednesday+$tot_h_thursday+$tot_h_friday+$tot_h_saturday+$tot_h_sunday;
 
 			$salary_weekly = $tot_h*$txt_money_per_h;
-
-
+			
 			$array_tot_h = array(
 				"tot_h_monday" => $tot_h_monday,"tot_h_tuesday" => $tot_h_tuesday,
 				"tot_h_wednesday" => $tot_h_wednesday,"tot_h_thursday"=>$tot_h_thursday,
